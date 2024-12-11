@@ -1,0 +1,89 @@
+{
+    "requests": [
+        {
+            "method": "GET",
+            "url": "http://interview_backend.test/api/employees",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            }
+        },
+        {
+            "method": "POST",
+            "url": "http://interview_backend.test/api/employees",
+            "headers": {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": "Bearer 1|PLxsnrW1BGrQz86a3YrD5fBdGceIV2ZHZJmr7i8t4cc6a4ca"
+            },
+            "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"email@gmail.com\",\n    \"dob\": \"11-11-2011\",\n    \"city\": \"Lagos\"\n}"
+            }
+        },
+        {
+            "method": "PUT",
+            "url": "http://interview_backend.test/api/employees/9db31141-8ed5-4b05-8d01-a5c07c927c9c",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            },
+            "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"email@gmail.com\",\n    \"dob\": \"11-11-2041\",\n    \"city\": \"Lagos\"\n}"
+            }
+        },
+        {
+            "method": "DELETE",
+            "url": "http://interview_backend.test/api/employees/9db31141-8ed5-4b05-8d01-a5c07c927c9c",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            }
+        },
+        {
+            "method": "PUT",
+            "url": "http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            },
+            "body": {
+                "mode": "raw",
+                "raw": "{\n   \"is_active\": 0\n}"
+            }
+        },
+        {
+            "method": "POST",
+            "url": "http://interview_backend.test/api/login",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "mode": "raw",
+                "raw": "{\n    \"email\": \"test@gmai.com\",\n    \"password\": \"password\"\n}"
+            }
+        },
+        {
+            "method": "POST",
+            "url": "http://interview_backend.test/api/logout",
+            "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            }
+        },
+        {
+            "method": "PUT",
+            "url": "http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+            },
+            "body": {
+                "mode": "raw",
+                "raw": "{\n    \"is_active\": 0\n}"
+            }
+        }
+    ]
+}
