@@ -1,5 +1,5 @@
 ```markdown
-git clone 
+git clone https://github.com/pimphand/interview_backend.git
 cd interview_backend
 composer install
 cp .env.example .env
