@@ -172,3 +172,89 @@ test('user can update status', function () {
 
     $response->assertStatus(200);
 });
+
+test('user can check In attendance', function () {
+    $user = User::factory()->create([
+        'email' => 'test@gmail.com',
+        'password' => bcrypt('password'),
+        'name' => 'Test User',
+    ]);
+
+    $response = $this->postJson('/api/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $response = $this->post('api/attendance-check-in', [
+        'Authorization' => 'Bearer ' . $response['access_token'],
+    ]);
+
+    $response->assertStatus(200);
+});
+
+test('Validate attendance check In check to prevent duplicate input.', function () {
+    $user = User::factory()->create([
+        'email' => 'test@gmail.com',
+        'password' => bcrypt('password'),
+        'name' => 'Test User',
+    ]);
+
+    $token = $this->postJson('/api/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+    $response = $this->post('api/attendance-check-in', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response = $this->post('api/attendance-check-in', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response->assertStatus(400);
+});
+
+test('user can check Out attendance', function () {
+    $user = User::factory()->create([
+        'email' => 'test@gmail.com',
+        'password' => bcrypt('password'),
+        'name' => 'Test User',
+    ]);
+
+    $token = $this->postJson('/api/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $this->post('api/attendance-check-in', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response = $this->post('api/attendance-check-out', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response->assertStatus(200);
+});
+
+test('Validate attendance check Out check to prevent duplicate input.', function () {
+    $user = User::factory()->create([
+        'email' => 'test@gmail.com',
+        'password' => bcrypt('password'),
+        'name' => 'Test User',
+    ]);
+
+    $token = $this->postJson('/api/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+    $response = $this->post('api/attendance-check-out', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response = $this->post('api/attendance-check-out', [
+        'Authorization' => 'Bearer ' . $token['access_token'],
+    ]);
+
+    $response->assertStatus(400);
+});

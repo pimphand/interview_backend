@@ -54,6 +54,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
         ];
+    }
+
+    public function attendance(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
     }
 }

@@ -1,3 +1,5 @@
+![Pest Test ](img.png)
+
 ```markdown
 git clone https://github.com/pimphand/interview_backend.git
 cd interview_backend
@@ -16,6 +18,7 @@ GET http://interview_backend.test/api/employees
 Content-Type: application/json
 Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
 
+
 ### POST request to example server
 POST http://interview_backend.test/api/employees
 Content-Type: application/json
@@ -23,10 +26,10 @@ Accept: application/json
 Authorization: "Bearer 1|PLxsnrW1BGrQz86a3YrD5fBdGceIV2ZHZJmr7i8t4cc6a4ca"
 
 {
-"name": "John Doe",
-"email": "email@gmail.com",
-"dob": "11-11-2011",
-"city": "Lagos"
+    "name": "John Doe",
+    "email": "email@gmail.com",
+    "dob": "11-11-2011",
+    "city": "Lagos"
 }
 
 ### PUT request to example server
@@ -36,10 +39,10 @@ Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
 
 
 {
-"name": "John Doe",
-"email": "email@gmail.com",
-"dob": "11-11-2041",
-"city": "Lagos"
+    "name": "John Doe",
+    "email": "email@gmail.com",
+    "dob": "11-11-2041",
+    "city": "Lagos"
 }
 
 ### DELETE request to example server
@@ -56,7 +59,7 @@ Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
 
 
 {
-"is_active": 0
+   "is_active": 0
 }
 
 
@@ -65,8 +68,8 @@ POST http://interview_backend.test/api/login
 Content-Type: application/json
 
 {
-"email": "test@gmai.com",
-"password": "password"
+    "email": "test@gmai.com",
+    "password": "password"
 }
 
 ### Logout
@@ -81,6 +84,13 @@ Content-Type: application/json
 Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
 
 {
-"is_active": 0
+    "is_active": 0
 }
+
+### POST
+POST http://interview_backend.test/api/attendance-check-in
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|kXyMKni8tYWi42sWguW5V2f2u3Lysp1IKR30cm0t0c0824b7
+
 ```

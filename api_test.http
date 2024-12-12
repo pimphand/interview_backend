@@ -1,14 +1,26 @@
+### Login
+POST http://interview_backend.test/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "test@gmai.com",
+    "password": "password"
+}
+
+> {% client.global.set("auth_token", response.body.access_token); %}
 ### GET request to example server
 GET http://interview_backend.test/api/employees
 Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+Accept: application/json
+Authorization: Bearer {{auth_token}}
 
 
 ### POST request to example server
 POST http://interview_backend.test/api/employees
 Content-Type: application/json
 Accept: application/json
-Authorization: "Bearer 1|PLxsnrW1BGrQz86a3YrD5fBdGceIV2ZHZJmr7i8t4cc6a4ca"
+Authorization: Bearer {{auth_token}}
 
 {
     "name": "John Doe",
@@ -17,57 +29,55 @@ Authorization: "Bearer 1|PLxsnrW1BGrQz86a3YrD5fBdGceIV2ZHZJmr7i8t4cc6a4ca"
     "city": "Lagos"
 }
 
-### PUT request to example server
-PUT http://interview_backend.test/api/employees/9db31141-8ed5-4b05-8d01-a5c07c927c9c
-Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
 
+> {% client.global.set("id", response.body.data.id); %}
+### PUT request to example server
+PUT http://interview_backend.test/api/employees/9db31208-0507-48f6-ba62-1534cc83b618
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
 
 {
     "name": "John Doe",
-    "email": "email@gmail.com",
+    "email": "email1@gmail.com",
     "dob": "11-11-2041",
     "city": "Lagos"
 }
-
-### DELETE request to example server
-DELETE http://interview_backend.test/api/employees/9db31141-8ed5-4b05-8d01-a5c07c927c9c
-Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
-
 
 ### PUT request to example server
 
 PUT http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618
 Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
+Authorization: Bearer {{auth_token}}
 
 
 {
    "is_active": 0
 }
 
-
-### Login
-POST http://interview_backend.test/api/login
+### User update status
+PUT http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618
 Content-Type: application/json
+Authorization: Bearer {{auth_token}}
 
 {
-    "email": "test@gmai.com",
-    "password": "password"
+    "is_active": 0
 }
+
+### DELETE request to example server
+DELETE http://interview_backend.test/api/employees/9db31141-8ed5-4b05-8d01-a5c07c927c9c
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+
+### POST
+POST http://interview_backend.test/api/attendance-check-in
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
 
 ### Logout
 POST http://interview_backend.test/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
-
-### User update status
-PUT http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618
-Content-Type: application/json
-Authorization: "Bearer 7|5kyeEyiyFNW4l6wJzQMwCk3dfH93exF0UbD3Mh3K8dacb9f0"
-
-{
-    "is_active": 0
-}
+Authorization: Bearer {{auth_token}}
