@@ -48,7 +48,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(EmployeeUpdateRequest $request, Employee $employee)
+    public function update(Request $request, Employee $employee)
     {
         $employee->update($request->validated());
 
@@ -73,7 +73,7 @@ class EmployeeController extends Controller
     public function activate(Request $request, Employee $employee): EmployeeResource
     {
         $employee->update([
-            'is_active' => $request->boolean('is_active'),
+            'is_active' => $request->is_active,
         ]);
 
         return EmployeeResource::make($employee);

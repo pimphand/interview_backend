@@ -56,7 +56,7 @@ Authorization: Bearer {{auth_token}}
 }
 
 ### User update status
-PUT http://interview_backend.test/api/employees/activate/9db31208-0507-48f6-ba62-1534cc83b618
+PUT http://interview_backend.test/api/employees/activate/9dbe97b9-3751-4f9b-94cd-fe569043af78
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -70,8 +70,20 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 
-### POST
+### POST check in
 POST http://interview_backend.test/api/attendance-check-in
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### POST check out
+POST http://interview_backend.test/api/attendance-check-out
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Get Attendance
+GET http://interview_backend.test/api/attendance
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{auth_token}}

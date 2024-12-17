@@ -81,18 +81,19 @@ class AttendanceController extends Controller
         }
 
         if ($attendance->check_out) {
-            return response()->json(['message' => 'You have already checked in for today'], 400);
+            return response()->json(['message' => 'You have already checked out for today'], 400);
         }
 
         $checkInTime = now();
         $officeEndTime = Carbon::createFromTime(18, 0, 0); // Maximum leave time 6:00 PM
-        $status = $checkInTime->greaterThan($officeEndTime) ? 'Over Time' : 'Leave';
+
+        $status = $checkInTime->lessThan($officeEndTime) ? 'Early Leave' : ($checkInTime->greaterThan($officeEndTime) ? 'Over Time' : 'Leave');
 
         $user->attendance()->where('attendance_date', $attendanceDate)->update([
             'check_out' => $checkInTime->toTimeString(),
             'status_check_out' => $status
         ]);
 
-        return response()->json(['message' => 'Check-in successful', 'data' => $attendance]);
+        return response()->json(['message' => 'Check-in successful']);
     }
 }
